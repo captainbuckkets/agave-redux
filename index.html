@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Agave Wallet</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/logo_only.svg" type="image/x-icon" />
+
+    <!-- CSS import -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+
+    </head>
+
+    <!-- Body Code -->
+    <body>
+
+        <!-- Nav Bar-->
+            <div id="navBar">
+                <!-- User Info Div -->
+                <div id="userInfoDiv">
+                    <!-- Identicon -->
+                    <svg width="60" height="60" data-jdenticon-value="mj9z4Lxkz2zBgSerWQqAHMELGYj83nWLhj"></svg>
+                    <!-- Address -->
+                    <p>mj9z4Lxkz2zBgSerWQqAHMELGYj83nWLhj</p>
+                </div>
+
+                <!-- Select Network -->
+                <div id="networkDiv">
+                    <select id="networkSelect">
+                        <option value="peercoin">Peercoin</option>
+                        <option value="bitcoinCash">Bitcoin Cash</option>
+                    </select>
+                </div>
+
+                <!-- Logout -->
+                <div id="logoutDiv">
+                    <img src="img/icons/Logout.svg">
+                </div>
+            </div>
+
+        <!-- Main area -->
+        <div id="canvas">
+
+            <!-- Login Area Div -->
+            <div id="loginArea">
+                <!-- Logo Area -->
+                <div class="loginLogo">
+                    <img src="img/logo_only.svg">
+                </div>
+
+                <!-- Login Panel -->
+                <div class="loginNav">
+                    
+                    <h1>Agave Wallet</h1>
+                    <!-- New User -->
+                    <div class="loginDiv" id="newUserDiv">
+                        <!-- Mneumonic -->
+                        <input id="mneumonic" placeholder="Mneumonic">
+
+                        <!-- Generate Mneumonic -->
+                        <button>Generate Mneumonic</button>
+
+                        <!-- Priv Key -->
+                        <input id="passwrd" type="password" placeholder="Password">
+                    
+                        <!-- Login Button -->
+                        <button onclick="loginCheck()">Login</button>
+                    </div>
+
+                    <!-- Returning User -->
+                    <div class="loginDiv" id="returningUserDiv">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wallet Area Div -->
+            <div id="walletDiv">
+                <!-- Wallet Nav Bar -->
+                <div id="walletNav">
+                    <table class="navTable">
+                        <!-- Overview Row -->
+                        <tr class="navRow" onclick="loadOverview()">
+                            <td class="navTD">
+                                <img class="navImage" src="img/icons/Overview.svg">
+                            </td>
+                            <td class="navTD">
+                                Overview
+                            </td>
+                        </tr>
+                        <!-- Send Row -->
+                        <tr class="navRow" onclick="loadSend()">
+                            <td class="navTD">
+                                <img class="navImage" src="img/icons/Send.svg">
+                            </td>
+                            <td class="navTD">
+                                Send    
+                            </td>
+                        </tr>
+                       <!-- Create Row -->
+                       <tr class="navRow">
+                            <td class="navTD">
+                                <img class="navImage" src="img/icons/Add.svg">
+                            </td>
+                            <td class="navTD">
+                                Create
+                            </td>
+                       </tr>
+                       <!-- Transactions -->
+                       <tr class="navRow">
+                            <td class="navTD">
+                                <img class="navImage" src="img/icons/Transactions.svg">
+                            </td>
+                            <td class="navTD">
+                                Transactions
+                            </td>
+                       </tr>
+                    </table>
+
+                    <!-- Info Table -->
+                    <table class="infoTable">
+                        <!-- Powered by PeerAssets -->
+                        <tr class="infoRow">
+                            <td class="infoTD">
+                                <img src="img/peercoinFavicon.png">
+                            </td>
+                            <td class="infoTD">
+                                <a>Powered by PeerAssets</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Wallet Content Area -->
+                <div id="walletArea">
+                    <!-- Overview Area -->
+                        <div id="overviewDiv" class="walletSubDiv">
+                            <!-- Cards -->
+                            <div id="cards" class="item">
+                                <h2>Cards</h2>
+                                <table>
+                                    <tr>
+                                        <!-- Asset Icon -->
+                                        <th></th>
+                                        <th>Name</th>
+                                    </tr>
+                                    <tr>
+                                        <td>img</td>
+                                        <td>Potato Soups</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            
+                            <!-- Decks -->
+                            <div id="decks" class="item">
+                                <h2>Decks</h2>
+                                <table>
+                                    <tr>
+                                        <!-- Asset Icon -->
+                                        <th></th>
+                                        <th>Name</th>
+                                    </tr>
+                                    <tr>
+                                        <td>img</td>
+                                        <td>Reason's to Live</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <!-- Recent Transactions Div -->
+                            <div id="recentTransactions" class="item">
+                                <h2>Recent Transactions</h2>
+                                <table>
+                                    <tr>
+                                        <!-- Asset Icon -->
+                                        <th></th>
+                                        <th>Type</th>
+                                        <th>Asset</th>
+                                        <th>Amount</th>
+                                        <th>Transaction ID</th>
+                                    </tr>
+                                    <tr>
+                                        <td><img class="tableIcon" src="img/icons/Arrow-Right-Circle.svg"></td>
+                                      <td>Receive</td>
+                                      <td>Peercoin</td>
+                                      <td>100.00</td>
+                                      <td>3b79c9574054e6d75a5ddf7278b308689d8d1e62c5b0806664c6ae929214aa37</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img class="tableIcon" src="img/icons/Arrow-Left-Circle.svg"></td>
+                                        <td>Sent</td>
+                                        <td>Jwil's Cookies</td>
+                                        <td>-3</td>
+                                        <td>cd2074a641159a7e8e2d4c1f323c41c30af884aa577b5c30c11b59ea6f05d90d</td>
+                                    </tr>
+                                  </table>
+                            </div>
+                        </div>
+                    <!-- Send Area -->
+                        <div id="sendDiv" class="walletSubDiv">
+                            <!-- Send Transaction -->
+                            <div id="sendTransaction">
+                                <h1>Send Assets</h1>
+                                <!-- Receiving Address -->
+                                Receiving Address
+                                <input id="sendReceivingAddress" type="text">
+                                <!-- Asset to Send -->
+                                Asset
+                                <select id="sendAsset">
+                                    <option value="abc">ABC</option>
+                                    <option value="cats">Cats</option>
+                                </select>
+                                <!-- Amount -->
+                                <input id="sendAmount" type="number">
+                                <!-- Generate Transaction Buttion -->
+                                <button id="sendTransactionButton">Send Transaction</button>
+                            </div>
+                        </div>
+                    <!-- Create Area -->
+                        <div id="createDiv" class="walletSubDiv">
+
+                        </div>
+                    <!-- Transactions Area -->
+                        <div id="transactionsDiv" class="walletSubDiv">
+                            
+                        </div>
+
+                </div>
+            </div>
+        </div>      
+
+        <!-- JAVASCRIPT -->
+
+        <!-- Add my main functional script -->
+        <script src="js/main.js"></script>
+        <!-- Add Jdenticon script -->
+        <script src="https://cdn.jsdelivr.net/npm/jdenticon@3.0.1" async></script>
+    </body>
+</html>
