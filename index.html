@@ -11,6 +11,9 @@
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
+    <!-- Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 
     </head>
 
@@ -47,32 +50,37 @@
             <!-- Login Area Div -->
             <div id="loginArea">
                 <!-- Logo Area -->
-                <div class="loginLogo">
-                    <img src="img/logo_only.svg">
+                <div class="loginLogoDiv animate__animated animate__fadeInLeftBig">
+                    <img class="loginLogo" src="img/logo_only_white.svg">
                 </div>
 
-                <!-- Login Panel -->
-                <div class="loginNav">
-                    
-                    <h1>Agave Wallet</h1>
-                    <!-- New User -->
-                    <div class="loginDiv" id="newUserDiv">
-                        <!-- Mneumonic -->
-                        <input id="mneumonic" placeholder="Mneumonic">
+                <!-- Login Container -->
+                <div class="loginNav animate__animated animate__flipInX">
+                    <div class="loginCard">
+                        <!-- Tabs Titles -->
+                        <div class="tabsTitles">
+                            <button id="loginTab" class="loginTab">Sign In</button>
+                            <button id="newUserTab" class="loginTab loginTabAlt">New User</button>
+                        </div>
+                        <!-- New User -->
+                        <div class="loginDiv" id="newUserDiv">
+                            <!-- Mneumonic -->
+                            <input id="mneumonic" class="loginInput" placeholder="Mneumonic">
 
-                        <!-- Generate Mneumonic -->
-                        <button>Generate Mneumonic</button>
+                            <!-- Generate Mneumonic -->
+                            <button>Generate Mneumonic</button>
 
-                        <!-- Priv Key -->
-                        <input id="passwrd" type="password" placeholder="Password">
-                    
-                        <!-- Login Button -->
-                        <button onclick="loginCheck()">Login</button>
-                    </div>
-
-                    <!-- Returning User -->
-                    <div class="loginDiv" id="returningUserDiv">
+                            <!-- Priv Key -->
+                            <input id="passwrd" class="loginInput" type="password" placeholder="Password">
                         
+                            <!-- Login Button -->
+                            <button onclick="loginCheck()">Login</button>
+                        </div>
+
+                        <!-- Returning User -->
+                        <div class="loginDiv" id="returningUserDiv">
+                            
+                        </div>
                     </div>
                 </div>
             </div>
@@ -139,7 +147,7 @@
                     <!-- Overview Area -->
                         <div id="overviewDiv" class="walletSubDiv">
                             <!-- Cards -->
-                            <div id="cards" class="item">
+                            <div id="cards" class="box item">
                                 <h2>Cards</h2>
                                 <table>
                                     <tr>
@@ -155,7 +163,7 @@
                             </div>
                             
                             <!-- Decks -->
-                            <div id="decks" class="item">
+                            <div id="decks" class="box item">
                                 <h2>Decks</h2>
                                 <table>
                                     <tr>
@@ -171,7 +179,7 @@
                             </div>
 
                             <!-- Recent Transactions Div -->
-                            <div id="recentTransactions" class="item">
+                            <div id="recentTransactions" class="box item">
                                 <h2>Recent Transactions</h2>
                                 <table>
                                     <tr>
