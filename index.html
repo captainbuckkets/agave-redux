@@ -18,29 +18,26 @@
     </head>
 
     <!-- Body Code -->
-    <body>
+    <body onload="prepFunction()">
+
+        <!-- Loading Overlay | Fire this when we want something to show the loading animation -->
+        <div id="loader">
+            <img id="loaderIcon" src="img/logo_only_white.svg">
+        </div>
 
         <!-- Nav Bar-->
             <div id="navBar">
                 <!-- User Info Div -->
                 <div id="userInfoDiv">
                     <!-- Identicon -->
-                    <svg width="60" height="60" data-jdenticon-value="mj9z4Lxkz2zBgSerWQqAHMELGYj83nWLhj"></svg>
+                    <svg class="jdenticonClass" width="60" height="60" data-jdenticon-value="mj9z4Lxkz2zBgSerWQqAHMELGYj83nWLhj"></svg>
                     <!-- Address -->
-                    <p>mj9z4Lxkz2zBgSerWQqAHMELGYj83nWLhj</p>
-                </div>
-
-                <!-- Select Network -->
-                <div id="networkDiv">
-                    <select id="networkSelect">
-                        <option value="peercoin">Peercoin</option>
-                        <option value="bitcoinCash">Bitcoin Cash</option>
-                    </select>
+                    <p class="addressClass">mj9z4Lxkz2zBgSerWQqAHMELGYj83nWLhj</p>
                 </div>
 
                 <!-- Logout -->
                 <div id="logoutDiv">
-                    <img src="img/icons/Logout.svg">
+                    <img class="logoutIcon" src="img/icons/Logout.svg">
                 </div>
             </div>
 
@@ -62,6 +59,19 @@
                             <button id="loginTab" class="loginTab">Sign In</button>
                             <button id="newUserTab" class="loginTab loginTabAlt">New User</button>
                         </div>
+
+                        <!-- Returning User -->
+                        <div class="loginDiv" id="returningUserDiv">
+                            <!-- Mneumonic -->
+                            <input id="mneumonic" class="loginInput" placeholder="Mneumonic">
+
+                            <!-- Priv Key -->
+                            <input id="passwrd" class="loginInput" type="password" placeholder="Password">
+                        
+                            <!-- Login Button -->
+                            <button onclick="loginCheck()">Login</button>
+                        </div>
+
                         <!-- New User -->
                         <div class="loginDiv" id="newUserDiv">
                             <!-- Mneumonic -->
@@ -75,11 +85,6 @@
                         
                             <!-- Login Button -->
                             <button onclick="loginCheck()">Login</button>
-                        </div>
-
-                        <!-- Returning User -->
-                        <div class="loginDiv" id="returningUserDiv">
-                            
                         </div>
                     </div>
                 </div>
