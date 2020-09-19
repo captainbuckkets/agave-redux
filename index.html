@@ -12,8 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <!-- Animation Library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     </head>
 
@@ -25,70 +24,79 @@
             <img id="loaderIcon" src="img/logo_only_white.svg">
         </div>
 
-        <!-- Nav Bar-->
-            <div id="navBar">
-                <!-- User Info Div -->
-                <div id="userInfoDiv">
-                    <!-- Identicon -->
-                    <svg class="jdenticonClass" width="60" height="60" data-jdenticon-value="mj9z4Lxkz2zBgSerWQqAHMELGYj83nWLhj"></svg>
-                    <!-- Address -->
-                    <p class="addressClass">mj9z4Lxkz2zBgSerWQqAHMELGYj83nWLhj</p>
-                </div>
-
-                <!-- Logout -->
-                <div id="logoutDiv">
-                    <img class="logoutIcon" src="img/icons/Logout.svg">
-                </div>
+        <!-- Login Area -->
+        <!-- Login Area Div -->
+        <div id="loginArea">
+            <!-- Logo Area -->
+            <div class="loginLogoDiv animate__animated animate__fadeInLeftBig">
+                <img class="loginLogo" src="img/logo_only_white.svg">
             </div>
 
-        <!-- Main area -->
-        <div id="canvas">
+            <!-- Login Container -->
+            <div class="loginNav animate__animated animate__flipInX">
+                <div class="loginCard">
+                    <!-- Tabs Titles -->
+                    <div class="tabsTitles">
+                        <button id="loginTab" class="loginTab">Sign In</button>
+                        <button id="newUserTab" class="loginTab loginTabAlt">New User</button>
+                    </div>
 
-            <!-- Login Area Div -->
-            <div id="loginArea">
-                <!-- Logo Area -->
-                <div class="loginLogoDiv animate__animated animate__fadeInLeftBig">
-                    <img class="loginLogo" src="img/logo_only_white.svg">
-                </div>
+                    <!-- Returning User -->
+                    <div class="loginDiv" id="returningUserDiv">
+                        <!-- Mneumonic -->
+                        <input id="mneumonic" class="loginInput" placeholder="Mneumonic">
 
-                <!-- Login Container -->
-                <div class="loginNav animate__animated animate__flipInX">
-                    <div class="loginCard">
-                        <!-- Tabs Titles -->
-                        <div class="tabsTitles">
-                            <button id="loginTab" class="loginTab">Sign In</button>
-                            <button id="newUserTab" class="loginTab loginTabAlt">New User</button>
-                        </div>
+                        <!-- Priv Key -->
+                        <input id="passwrd" class="loginInput" type="password" placeholder="Password">
+                    
+                        <!-- Login Button -->
+                        <button onclick="loginCheck()">Login</button>
+                    </div>
 
-                        <!-- Returning User -->
-                        <div class="loginDiv" id="returningUserDiv">
-                            <!-- Mneumonic -->
-                            <input id="mneumonic" class="loginInput" placeholder="Mneumonic">
+                    <!-- New User -->
+                    <div class="loginDiv" id="newUserDiv">
+                        <!-- Mneumonic -->
+                        <input id="mneumonic" class="loginInput" placeholder="Mneumonic">
 
-                            <!-- Priv Key -->
-                            <input id="passwrd" class="loginInput" type="password" placeholder="Password">
-                        
-                            <!-- Login Button -->
-                            <button onclick="loginCheck()">Login</button>
-                        </div>
+                        <!-- Generate Mneumonic -->
+                        <button>Generate Mneumonic</button>
 
-                        <!-- New User -->
-                        <div class="loginDiv" id="newUserDiv">
-                            <!-- Mneumonic -->
-                            <input id="mneumonic" class="loginInput" placeholder="Mneumonic">
-
-                            <!-- Generate Mneumonic -->
-                            <button>Generate Mneumonic</button>
-
-                            <!-- Priv Key -->
-                            <input id="passwrd" class="loginInput" type="password" placeholder="Password">
-                        
-                            <!-- Login Button -->
-                            <button onclick="loginCheck()">Login</button>
-                        </div>
+                        <!-- Priv Key -->
+                        <input id="passwrd" class="loginInput" type="password" placeholder="Password">
+                    
+                        <!-- Login Button -->
+                        <button onclick="loginCheck()">Login</button>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Nav Bar-->
+        <div id="navBar">
+            <!-- User Info Div -->
+            <div id="userInfoDiv">
+                <!-- Agave Logo -->
+                <div id="userInfoLogoDiv">
+                    <img id="userInfoLogo" src="img/logo_white.svg">
+                </div>
+                
+                <!-- Address -->
+                <div id="userAddress">
+                    <div class="addressClass">mprgLWTLBpPrC15ikV2BLVP7gDRnoSuf7o</div>
+                </div>
+
+                <!-- User Balance -->
+                <div id="userInfoBalance">
+                </div>
+            </div>
+
+            <!-- Logout -->
+            <div id="logoutDiv">
+                <img class="logoutIcon" src="img/icons/Logout.svg">
+            </div>
+        </div>
+        <!-- Main area -->
+        <div id="canvas">
 
             <!-- Wallet Area Div -->
             <div id="walletDiv">
@@ -97,40 +105,52 @@
                     <table class="navTable">
                         <!-- Overview Row -->
                         <tr class="navRow" onclick="loadOverview()">
-                            <td class="navTD">
+                            <!-- <td class="navTD">
                                 <img class="navImage" src="img/icons/Overview.svg">
-                            </td>
-                            <td class="navTD">
+                            </td> -->
+                            <td class="navTD navActive" id="overviewTab">
                                 Overview
                             </td>
                         </tr>
                         <!-- Send Row -->
                         <tr class="navRow" onclick="loadSend()">
-                            <td class="navTD">
+                            <!-- <td class="navTD">
                                 <img class="navImage" src="img/icons/Send.svg">
-                            </td>
-                            <td class="navTD">
+                            </td> -->
+                            <td class="navTD" id="sendTab">
                                 Send    
                             </td>
                         </tr>
                        <!-- Create Row -->
-                       <tr class="navRow">
-                            <td class="navTD">
+                       <tr class="navRow" onclick="loadCreate()">
+                            <!-- <td class="navTD">
                                 <img class="navImage" src="img/icons/Add.svg">
-                            </td>
-                            <td class="navTD">
+                            </td> -->
+                            <td class="navTD" id="createTab">
                                 Create
                             </td>
                        </tr>
                        <!-- Transactions -->
-                       <tr class="navRow">
-                            <td class="navTD">
+                       <tr class="navRow" onclick="loadTransactions()">
+                            <!-- <td class="navTD">
                                 <img class="navImage" src="img/icons/Transactions.svg">
-                            </td>
-                            <td class="navTD">
+                            </td> -->
+                            <td class="navTD" id="transactionsTab">
                                 Transactions
                             </td>
                        </tr>
+                    </table>
+
+                    <!-- API Status Table -->
+                    <table class="infoTable">
+                        <!-- Agave API -->
+                        <tr class="infoRow">
+                            <td class="infoTD">
+
+                            </td>
+                        </tr>
+                        <!-- Blockfolio API -->
+                        <!-- Last Block -->
                     </table>
 
                     <!-- Info Table -->
@@ -138,10 +158,10 @@
                         <!-- Powered by PeerAssets -->
                         <tr class="infoRow">
                             <td class="infoTD">
-                                <img src="img/peercoinFavicon.png">
+                                <img class="peerAssets" src="img/peerassets.png">
                             </td>
                             <td class="infoTD">
-                                <a>Powered by PeerAssets</a>
+                                <a href="http://peerassets.github.io/WhitePaper/">Powered by PeerAssets</a>
                             </td>
                         </tr>
                     </table>
@@ -152,23 +172,30 @@
                     <!-- Overview Area -->
                         <div id="overviewDiv" class="walletSubDiv">
                             <!-- Cards -->
-                            <div id="cards" class="box item">
+                            <div id="cards" class="item">
                                 <h2>Cards</h2>
                                 <table>
                                     <tr>
                                         <!-- Asset Icon -->
                                         <th></th>
                                         <th>Name</th>
+                                        <th>Amount</th>
                                     </tr>
                                     <tr>
-                                        <td>img</td>
+                                        <td><img class="tableIcon" src="img/logo_only_white.svg"></td>
                                         <td>Potato Soups</td>
+                                        <td>20</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img class="tableIcon" src="img/logo_only_white.svg"></td>
+                                        <td>Muffins</td>
+                                        <td>3.0</td>
                                     </tr>
                                 </table>
                             </div>
                             
                             <!-- Decks -->
-                            <div id="decks" class="box item">
+                            <div id="decks" class="item">
                                 <h2>Decks</h2>
                                 <table>
                                     <tr>
@@ -177,18 +204,23 @@
                                         <th>Name</th>
                                     </tr>
                                     <tr>
-                                        <td>img</td>
+                                        <td><img class="tableIcon" src="img/logo_only_white.svg"></td>
                                         <td>Reason's to Live</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img class="tableIcon" src="img/logo_only_white.svg"></td>
+                                        <td>Cupcakes</td>
                                     </tr>
                                 </table>
                             </div>
 
                             <!-- Recent Transactions Div -->
-                            <div id="recentTransactions" class="box item">
+                            <div id="recentTransactions" class="item">
                                 <h2>Recent Transactions</h2>
                                 <table>
                                     <tr>
                                         <!-- Asset Icon -->
+                                        <th></th>
                                         <th></th>
                                         <th>Type</th>
                                         <th>Asset</th>
@@ -196,18 +228,22 @@
                                         <th>Transaction ID</th>
                                     </tr>
                                     <tr>
+                                        <td><img class="tableIcon" src="img/logo_only_white.svg"></td>
                                         <td><img class="tableIcon" src="img/icons/Arrow-Right-Circle.svg"></td>
-                                      <td>Receive</td>
-                                      <td>Peercoin</td>
-                                      <td>100.00</td>
-                                      <td>3b79c9574054e6d75a5ddf7278b308689d8d1e62c5b0806664c6ae929214aa37</td>
+                                        <td>Received</td>
+                                        <td>Peercoin</td>
+                                        <td>100.00</td>
+                                        <td>TX ID</td>
+                                        <!-- 3b79c9574054e6d75a5ddf7278b308689d8d1e62c5b0806664c6ae929214aa37 -->
                                     </tr>
                                     <tr>
+                                        <td><img class="tableIcon"  src="img/logo_only_white.svg"></td>
                                         <td><img class="tableIcon" src="img/icons/Arrow-Left-Circle.svg"></td>
                                         <td>Sent</td>
                                         <td>Jwil's Cookies</td>
                                         <td>-3</td>
-                                        <td>cd2074a641159a7e8e2d4c1f323c41c30af884aa577b5c30c11b59ea6f05d90d</td>
+                                        <td>TX ID</td>
+                                        <!-- cd2074a641159a7e8e2d4c1f323c41c30af884aa577b5c30c11b59ea6f05d90d -->
                                     </tr>
                                   </table>
                             </div>
@@ -215,30 +251,117 @@
                     <!-- Send Area -->
                         <div id="sendDiv" class="walletSubDiv">
                             <!-- Send Transaction -->
-                            <div id="sendTransaction">
+                            <div id="sendTransaction" class="walletFormDiv">
                                 <h1>Send Assets</h1>
                                 <!-- Receiving Address -->
                                 Receiving Address
-                                <input id="sendReceivingAddress" type="text">
+                                <input class="walletInput" id="sendReceivingAddress" type="text">
                                 <!-- Asset to Send -->
                                 Asset
-                                <select id="sendAsset">
+                                <select class="walletInput" id="sendAsset">
                                     <option value="abc">ABC</option>
                                     <option value="cats">Cats</option>
                                 </select>
                                 <!-- Amount -->
-                                <input id="sendAmount" type="number">
+                                Send Amount
+                                <input class="walletInput" id="sendAmount" type="number">
                                 <!-- Generate Transaction Buttion -->
-                                <button id="sendTransactionButton">Send Transaction</button>
+                                <button id="confirmTransactionButton" onclick="sendChecker()">Confirm Transaction</button>
+                            </div>
+
+                            <!-- Send Transaction Confirmation -->
+                            <div id="confirmTransactionSend" class="confirmTransactionDiv">
+                                <div class="confirmDiv">
+                                    <h2 class="confirmText">Confirm Transaction</h2>
+                                    <!-- Confirmation Table -->
+                                    <table class="confirmTable">
+                                        <!-- Receiving Address Confirmation -->
+                                        <tr class="confirmRow">
+                                            <td class="confirmTD">
+                                                <h3>Receiving Address</h3>
+                                            </td>
+                                            <td id="receivingAddressConfirmSend" class="confirmTD">
+                                                SOME ADDRESS
+                                            </td>
+                                        </tr>
+                                        <!-- Asset Confirmation -->
+                                        <tr class="confirmRow">
+                                            <td class="confirmTD">
+                                                <h3>Asset</h3>
+                                            </td>
+                                            <td id="assetConfirmSend" class="confirmTD">
+                                                SOME ASSET
+                                            </td>
+                                        </tr>
+                                        <!-- Amount Confirmation -->
+                                        <tr class="confirmRow">
+                                            <td class="confirmTD">
+                                                <h3>Amount</h3>
+                                            </td>
+                                            <td id="amountConfirmSend" class="confirmTD">
+                                                SOME AMOUNT
+                                            </td>
+                                        </tr>
+                                        <!-- Fee Confirmation -->
+                                        <!-- Can't remember if we could do this -->
+                                    </table>
+                                    <!-- Password Confirmation -->
+                                    <h3 class="confirmText">Password Confirmation</h3>
+                                    <input id="passwordConfirmSend" placeholder="Enter Password" type="password">
+                                    <!-- Send Transaction Button -->
+                                    <div class="confirmButtonsDiv">
+                                        <!-- Cancel -->
+                                        <button id="cancelTransactionButtonSend" onclick="cancelSendTransaction()">Cancel</button>
+                                        <!-- Confirm -->
+                                        <button class="confirmButton" id="sendTransactionButton" onclick="sendTransaction">Send Transaction</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     <!-- Create Area -->
                         <div id="createDiv" class="walletSubDiv">
-
+                            
                         </div>
                     <!-- Transactions Area -->
                         <div id="transactionsDiv" class="walletSubDiv">
-                            
+                            <div id="recentTransactions" class="item">
+                                <h2>Recent Transactions</h2>
+                                <table>
+                                    <tr>
+                                        <!-- Asset Icon -->
+                                        <th>Asset Icon</th>
+                                        <th></th>
+                                        <th>Type</th>
+                                        <th>Asset</th>
+                                        <th>Amount</th>
+                                        <th>Label</th>
+                                        <th>Age</th>
+                                        <th>Transaction ID</th>
+                                    </tr>
+                                    <tr>
+                                        <td><img class="tableIcon"  src="img/logo_only_white.svg"></td>
+                                        <td><img class="tableIcon" src="img/icons/Arrow-Right-Circle.svg"></td>
+                                      <td>Receive</td>
+                                      <td>Peercoin</td>
+                                      <td>100.00</td>
+                                      <td>PB3kGCRuZe39fFtCa3ZWFfGDtvKwshMaB2</td>
+                                      <td>3 Days ago</td>
+                                      <td>View Transaction</td>
+                                      <!-- 3b79c9574054e6d75a5ddf7278b308689d8d1e62c5b0806664c6ae929214aa37 -->
+                                    </tr>
+                                    <tr>
+                                        <td><img class="tableIcon"  src="img/logo_only_white.svg"></td>
+                                        <td><img class="tableIcon" src="img/icons/Arrow-Left-Circle.svg"></td>
+                                        <td>Sent</td>
+                                        <td>Jwil's Cookies</td>
+                                        <td>-3</td>
+                                        <td>PN9ZrKwPttJxM8VMsfBFtAWzbycpG2cosD</td>
+                                        <td>9:25 9/18/20</td>
+                                        <td>View Transaction</td>
+                                        <!-- cd2074a641159a7e8e2d4c1f323c41c30af884aa577b5c30c11b59ea6f05d90d -->
+                                    </tr>
+                                  </table>
+                            </div>
                         </div>
 
                 </div>

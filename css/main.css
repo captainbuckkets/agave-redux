@@ -72,13 +72,34 @@ table {
     overflow-y: scroll;
   }
   
+tr:hover {
+      background-color: rgb(0, 0, 0, .1);
+}
+
+/* We need to ignore hover for TR rather than first child */
+/* tr:first-child:hover {
+    background-color: transparent;
+} */
+
+th {
+    background-color: rgb(0, 0, 0, .2);
+}
+
   td, th {
     text-align: left;
     padding: 8px;
   }
 
-.tableIcon {
+a {
+    color: white;
+}
 
+a:hover {
+    color: var(--green1)
+}
+
+.tableIcon {
+    width: 30px;
 }
 
 /* #loader {
@@ -119,24 +140,46 @@ table {
 #navBar {
     display: none;
     width: 100%;
-    height: 5vh;
-    background: linear-gradient(30deg, rgba(60,176,84,1) 0%, rgba(43,114,154,1) 100%);
+    height: 8vh;
+    background: transparent;
     /* display: flex; */
 }
 
 #userInfoDiv {
     width: 90%;
-    display: flex;
+    display: inline-flex;
     color: white;
     height: 100%;
+    background-color: rgb(0, 0, 0, .4);
+    text-align: center;
 }
 
-.jdenticonClass {
-    height: 100%;
+#userInfoLogoDiv {
+    width: 20%;
+    display: inline-block;
+    margin: auto;
 }
 
-.addressClass {
-    color: black;
+#userInfoLogo {
+    /* padding: 10px 0px 10px 0px; */
+}
+
+#userInfoAddress {
+    width: 50%;
+    display: inline-block;
+}
+
+#userInfoBalance {
+    width: 30%;
+    display: inline-block;
+    font-size: 2rem;
+    margin: auto;
+}
+
+#userAddress {
+    font-size: 1.1rem;
+    margin: auto;
+    text-transform: uppercase;
 }
 
 #networkDiv {
@@ -161,7 +204,7 @@ table {
 }
 
 #canvas {
-    height: 100vh;
+    height: 92vh;
     width: 100%;
 }
 
@@ -188,7 +231,7 @@ table {
 
 .loginCard {
     width: 100%;
-    background-color: rgb(0, 0, 0, .1);
+    background-color: rgb(0, 0, 0, .2);
     box-sizing: border-box
 
 }
@@ -238,56 +281,63 @@ table {
 
 /* Wallet Area */
 #walletDiv {
-    /* width: 100vw; */
+    width: 100vw;
     height: 100%;
     display: none;
 }
 
 #walletNav {
     width: auto;
+    background-color: rgb(0, 0, 0, .4);
 }
 
 #walletArea {
-    width: auto;
+    width: 100%;
+    padding: 1vw;
 }
 
 .item {
     /* background-color: var(--green1); */
     padding: 10px;
-    border-radius: 6px;
+    /* border-radius: 6px; */
     height: 38vh;
     margin: 10px;
+    color: white;
     /* overflow-y: scroll; */
 }
 
 .navTable {
     background-color: transparent;
-    height: 50%;
+    height: 40%;
 }
 
 .navRow {
     background-color: transparent;
-    color: var(--green2)
+    color: white;
 }
 
 .navTD {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     transition: all .2s ease-in-out;
+    text-align: center;
 }
 
 .navRow:hover {
     cursor: pointer;
-    background-color: #ddd;
+    background-color: rgb(0, 0, 0, .1); 
+    color: var(--green1);
 }
 
-.navImage {
-    
+.navActive {
+    color: var(--green1);
+    background: rgb(0, 0, 0, .2);
 }
 
 /* Info table styles */
 
 .infoTable {
     background-color: transparent;
+    height: 20%;
 }
 
 .infoRow{
@@ -300,7 +350,15 @@ table {
     text-align: center;
 }
 
+.peerAssets {
+    height: 16px;
+}
+
 /* Wallet Content Divs */
+.walletInput {
+    background-color: rgb(0, 0, 0, .2);
+}
+
 #overviewDiv {
     display: none;
     grid-template-columns: repeat(2, 1fr);
@@ -310,7 +368,7 @@ table {
 }
 
 .walletSubDiv {
-
+    color: white;
 }
 
 
@@ -330,5 +388,72 @@ table {
 /* Send Content Divs */
 #sendDiv {
     display: none;
+    text-align: center;
+    justify-content: center;
 }
 
+.walletFormDiv {
+    width: 60%;
+}
+
+#confirmTransactionSend {
+    display: none;
+}
+
+.confirmTransactionDiv {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: rgb(0, 0, 0, .5);
+    z-index: 9999;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.confirmDiv {
+    width: 60%;
+    background: white;
+    border-radius: 6px;
+    padding: 2vw;
+}
+
+.confirmText {
+    color: var(--agave)
+}
+
+.confirmTable {
+    color: var(--dark1);
+    width: 60%;
+    margin: auto;
+}
+
+.confirmRow {
+
+}
+
+.confirmRow:hover {
+    background-color: transparent;
+}
+
+.confirmTD {
+
+}
+
+.confirmButtonsDiv {
+    display: inline;
+}
+
+.confirmButton {
+    background-color: var(--green1);
+}
+
+.confirmButton:hover {
+    background-color: var(--green1Alt);
+}
+
+#transactionsDiv {
+    display: none;
+}
