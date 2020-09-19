@@ -323,6 +323,13 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- Help Button -->
+                            <a href="#" id="sendHelp">
+                                <div class="helpButton">
+                                    <h1>?</h1>
+                                </div>
+                            </a>
                         </div>
                     <!-- Create Area -->
                         <div id="createDiv" class="walletSubDiv">
@@ -336,12 +343,11 @@
                                 <!-- Issue Mode -->
                                 Issue Mode
                                 <select class="walletInput" id="createIssueModeSelect">
-                                    <option value="0">None Issue Mode</option>
-                                    <option value="2">Once Issue Mode</option>
-                                    <option value="4">Multi Issue Mode</option>
-                                    <option value="8">Mono Issue Mode</option>
-                                    <option value="10">Singlet Issue Mode</option>
-                                    <option value="16">Unflushbale Issue Mode</option>
+                                    <option value="Once Issue Mode">Once Issue Mode</option>
+                                    <option value="Multi Issue Mode">Multi Issue Mode</option>
+                                    <option value="Mono Issue Mode">Mono Issue Mode</option>
+                                    <option value="Singlet Issue Mode">Singlet Issue Mode</option>
+                                    <option value="Unflushable Issue Mode">Unflushable Issue Mode</option>
                                 </select>
                                 <!-- Decimal Place -->
                                 Decimal Places
@@ -407,6 +413,12 @@
                                 </div>
                             </div>
 
+                            <!-- Help Button -->
+                            <a href="#" id="createHelp">
+                                <div class="helpButton">
+                                    <h1>?</h1>
+                                </div>
+                            </a>
                         </div>
                     <!-- Transactions Area -->
                         <div id="transactionsDiv" class="walletSubDiv">
@@ -458,6 +470,13 @@
 
         <!-- Add my main functional script -->
         <script src="js/main.js"></script>
+
+        <!-- SEND SCRIPT -->
+        <script src="js/send.js"></script>
+
+        <!-- CREATE SCRIPT -->
+        <script src="js/create.js"></script>
+
         <!-- Add Jdenticon script -->
         <script src="https://cdn.jsdelivr.net/npm/jdenticon@3.0.1" async></script>
     </body>

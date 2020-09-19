@@ -16,7 +16,6 @@ function prepFunction() {
 function loaderStart() {
     // Turn on the loader
     document.getElementById("loader").style.display = "flex"
-    setTimeout(loaderStop, 300)
 }
 
 function loaderStop() {
@@ -171,8 +170,10 @@ function loadSend() {
     // Remove the Active Tag
     removeActiveTag("sendTab")
 
-    // Show Overview
+    // Show Send
     document.getElementById("sendDiv").style.display = "flex"
+    // Show Send Help
+    document.getElementById("sendHelp").style.display = "block"
 }
 
 // Load Create
@@ -188,6 +189,8 @@ function loadCreate() {
 
     // Show Create
     document.getElementById("createDiv").style.display = "block"
+    // Show Create Help
+    document.getElementById("createHelp").style.display = "block"
 }
 
 // Load Transactions
@@ -203,50 +206,6 @@ function loadTransactions() {
 
     // Show Create
     document.getElementById("transactionsDiv").style.display = "block"
-}
-
-// SEND SCRIPTS
-function sendChecker() {
-    // EMPTY FOR NOW
-    console.log("All forms valid")
-    openConfirmSend()
-
-    // Valid address
-    // Valid asset
-    // Valid amount
-
-}
-
-// Create Scripts
-function createChecker() {
-    // Empty for now
-    console.log("All forms valid")
-    openConfirmCreate()
-
-    // Valid Name
-    // Valid Issue Mode
-    // Valid Decimal
-    // Valid ASD
-}
-
-// Open Confirmation Form - Send Page
-function openConfirmSend() {
-    document.getElementById("confirmTransactionSend").style.display = "flex"
-}
-
-// Close Confirmation Form - Send Page
-function cancelSendTransaction() {
-    document.getElementById("confirmTransactionSend").style.display = "none"
-}
-
-// Open Confirmation Form - Create Page
-function openConfirmCreate() {
-    document.getElementById("confirmTransactionCreate").style.display = "flex"
-}
-
-// Close Confirmation Form - Create Page
-function cancelCreateTransaction() {
-    document.getElementById("confirmTransactionCreate").style.display = "none"
 }
 
 // Logout function

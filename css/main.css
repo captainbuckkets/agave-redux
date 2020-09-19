@@ -45,6 +45,7 @@ input, select, textarea {
     width: 60%;
     margin: 10px;
     display: block;
+    color: white;
 }
 
 button {
@@ -440,9 +441,9 @@ a:hover {
 
 .confirmDiv {
     width: 60%;
-    background: white;
-    border-radius: 6px;
+    background: rgb(0, 0, 0, .7);
     padding: 2vw;
+    text-align: center;
 }
 
 .confirmText {
@@ -450,7 +451,6 @@ a:hover {
 }
 
 .confirmTable {
-    color: var(--dark1);
     width: 60%;
     margin: auto;
 }
@@ -481,4 +481,26 @@ a:hover {
 
 #transactionsDiv {
     display: none;
+}
+
+#createHelp {
+    display: none;
+}
+
+#sendHelp {
+    display: none;
+}
+
+.helpButton {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100px;
+    background: rgb(0, 0, 0, .4);
+    color: var(--agave);
+}
+
+.helpButton:hover {
+    background: rgb(0, 0, 0, .5)
 }
