@@ -1,6 +1,7 @@
 // Login screen loaders
 // Add event listeners to Sign In and New User tabs
 var unit = "tPPC"
+var explorer = "https://tblockbook.peercoin.net/"
 
 function prepFunction() {
     var login = document.getElementById("loginTab")
@@ -40,8 +41,17 @@ function loginCheck() {
     loadWalletArea()
 }
 
-// Check Status
-function checkBlockfolio() {
+// Check Statuses
+function checkAgave() {
+    // Need the stupid API to be online to test if its alive
+
+    // Set Agave Status
+    // Check Agave Status
+    // document.getElementById("agaveStatus").innerHTML = '<div><img src="img/icons/Network2.svg"/></div>' + '<div> Agave: Online</div>'
+                
+}
+
+function checkBlockbook() {
     var requestOptions = {
         method: 'GET',
         redirect: 'follow'
@@ -49,7 +59,21 @@ function checkBlockfolio() {
 
     fetch("https://tblockbook.peercoin.net/api/", requestOptions)
         .then(response => response.json())
-        .then(result => console.log("Blockbook Status", result.blockbook.inSync))
+        .then(result => {
+            console.log("result", result)
+            console.log("Blockbook Status", result.blockbook.inSync)
+            if (result.blockbook.inSync == true) {
+                // Set Blockbook Status
+                document.getElementById("blockbookStatus").innerHTML = '<div><img src="img/icons/Network.svg"/></div>' + '<div> Blockbook: Online</div>'
+                // Set Best Blockheight
+                document.getElementById("bestBlockheight").innerText = 'Block Height: ' + result.blockbook.bestHeight
+                // Set Last Block Time
+                let blockTime = new Date(result.blockbook.lastBlockTime).toLocaleTimeString()
+                document.getElementById("lastBlock").innerText = 'Last Block: ' + blockTime
+            } else {
+                document.getElementById("blockbookStatus").innerHTML = '<div><img src="img/icons/Network_offline.svg"/></div>' + '<div> Blockbook: ' + 'Offline</div>'
+            }
+        })
         .catch(error => console.log('error', error));
 }
 
@@ -71,14 +95,16 @@ function getBalance() {
 }
 
 function loadWalletArea() {
-    // Check Blockfolio
-    checkBlockfolio()
+    // Check Blockbook
+    checkBlockbook()
 
     // Get Balance
     getBalance()
 
     // Hide the login area - maybe add an animation
     document.getElementById("loginArea").style.display = "none"
+    // Show the card
+    document.getElementById("canvas").style.display = "block"
     // Show the wallet area
     document.getElementById("navBar").style.display = "flex"
     // Add logout event listener
@@ -191,15 +217,36 @@ function sendChecker() {
 
 }
 
+// Create Scripts
+function createChecker() {
+    // Empty for now
+    console.log("All forms valid")
+    openConfirmCreate()
+
+    // Valid Name
+    // Valid Issue Mode
+    // Valid Decimal
+    // Valid ASD
+}
+
 // Open Confirmation Form - Send Page
 function openConfirmSend() {
-    // There will be a
     document.getElementById("confirmTransactionSend").style.display = "flex"
 }
 
 // Close Confirmation Form - Send Page
 function cancelSendTransaction() {
     document.getElementById("confirmTransactionSend").style.display = "none"
+}
+
+// Open Confirmation Form - Create Page
+function openConfirmCreate() {
+    document.getElementById("confirmTransactionCreate").style.display = "flex"
+}
+
+// Close Confirmation Form - Create Page
+function cancelCreateTransaction() {
+    document.getElementById("confirmTransactionCreate").style.display = "none"
 }
 
 // Logout function

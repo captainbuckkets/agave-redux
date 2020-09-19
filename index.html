@@ -142,15 +142,23 @@
                     </table>
 
                     <!-- API Status Table -->
-                    <table class="infoTable">
+                    <table class="statusTable">
                         <!-- Agave API -->
-                        <tr class="infoRow">
-                            <td class="infoTD">
-
-                            </td>
+                        <tr class="statusRow">
+                            <td id="agaveStatus" class="statusTD"></td>                            </td>
                         </tr>
-                        <!-- Blockfolio API -->
+                        <!-- Blockbook API -->
+                        <tr class="statusRow">
+                            <td id="blockbookStatus" class="statusTD"></td>                            </td>
+                        </tr>
+                        <!-- Best Blockheight -->
+                        <tr class="statusRow">
+                            <td id="bestBlockheight" class="statusTD"></td>
+                        </tr>
                         <!-- Last Block -->
+                        <tr class="statusRow">
+                            <td id="lastBlock" class="statusTD"></td>
+                        </tr>
                     </table>
 
                     <!-- Info Table -->
@@ -171,9 +179,9 @@
                 <div id="walletArea">
                     <!-- Overview Area -->
                         <div id="overviewDiv" class="walletSubDiv">
-                            <!-- Cards -->
-                            <div id="cards" class="item">
-                                <h2>Cards</h2>
+                            <!-- Balances -->
+                            <div id="balances" class="item">
+                                <h2>Balances</h2>
                                 <table>
                                     <tr>
                                         <!-- Asset Icon -->
@@ -302,8 +310,6 @@
                                                 SOME AMOUNT
                                             </td>
                                         </tr>
-                                        <!-- Fee Confirmation -->
-                                        <!-- Can't remember if we could do this -->
                                     </table>
                                     <!-- Password Confirmation -->
                                     <h3 class="confirmText">Password Confirmation</h3>
@@ -313,14 +319,94 @@
                                         <!-- Cancel -->
                                         <button id="cancelTransactionButtonSend" onclick="cancelSendTransaction()">Cancel</button>
                                         <!-- Confirm -->
-                                        <button class="confirmButton" id="sendTransactionButton" onclick="sendTransaction">Send Transaction</button>
+                                        <button class="confirmButton" id="sendTransactionButton" onclick="sendTransaction()">Send Transaction</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     <!-- Create Area -->
                         <div id="createDiv" class="walletSubDiv">
-                            
+                            <!-- Create  -->
+                            <!-- Maybe Add a Tab for Card Creation? I can't remember -->
+                            <div id="createTransaction" class="walletFormDiv">
+                                <h1>Create Decks</h1>
+                                <!-- Deck Name -->
+                                Deck Name
+                                <input class="walletInput" id="createDeckName" type="text">
+                                <!-- Issue Mode -->
+                                Issue Mode
+                                <select class="walletInput" id="createIssueModeSelect">
+                                    <option value="0">None Issue Mode</option>
+                                    <option value="2">Once Issue Mode</option>
+                                    <option value="4">Multi Issue Mode</option>
+                                    <option value="8">Mono Issue Mode</option>
+                                    <option value="10">Singlet Issue Mode</option>
+                                    <option value="16">Unflushbale Issue Mode</option>
+                                </select>
+                                <!-- Decimal Place -->
+                                Decimal Places
+                                <input class="walletInput" id="createDeckDecimals" type="number" min="0" max="8"> 
+                                <!-- Asset Specific Data -->
+                                Asset Specific Data
+                                <textarea class="walletInput" id="createASD"></textarea>
+                                <!-- Create Button -->
+                                <button id="confirmCreateButton" onclick="createChecker()">Confirm Creation</button>
+                            </div>
+
+                            <!-- Create Confirmation -->
+                            <div id="confirmTransactionCreate" class="confirmTransactionDiv">
+                                <div class="confirmDiv">
+                                    <h2 class="confirmText">Confirm Creation</h2>
+                                    <!-- Confirmation Table -->
+                                    <table class="confirmTable">
+                                        <!-- Deck Name Confirmation -->
+                                        <tr class="confirmRow">
+                                            <td class="confirmTD">
+                                                <h3>Deck Name</h3>
+                                            </td>
+                                            <td id="deckNameConfirmCreate" class="confirmTD">
+                                                SOME DECK NAME
+                                            </td>
+                                        </tr>
+                                        <!-- Issue Mode Confirmation -->
+                                        <tr class="confirmRow">
+                                            <td class="confirmTD">
+                                                <h3>Issue Mode</h3>
+                                            </td>
+                                            <td id="issueModeConfirmCreate" class="confirmTD">
+                                                SOME ISSUE MODE
+                                            </td>
+                                        </tr>
+                                        <!-- Decimal Confirmation -->
+                                        <tr class="confirmRow">
+                                            <td class="confirmTD">
+                                                <h3>Decimal Places</h3>
+                                            </td>
+                                            <td id="decimalPlaceConfirmCreate" class="confirmTD">
+                                                SOME DECIMALS
+                                            </td>
+                                        </tr>
+                                        <!-- Asset Specific Data Confirmation -->
+                                        <tr class="confirmRow">
+                                            <td class="confirmTD">
+                                                <h3>Asset Specific Data</h3>
+                                            </td>
+                                            <td id="aSDConfirmCreate" class="confirmTD">
+                                                SOME ASD
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- Password Confirmation -->
+                                    <h3 class="confirmText">Password Confirmation</h3>
+                                    <input id="passwordConfirmCreate" placeholder="Enter Password" type="password">
+                                    <!-- Create Transaction Button -->
+                                        <!-- Cancel -->
+                                        <button id="cancelTransactionButtonCreate" onclick="cancelCreateTransaction()">Cancel</button>
+                                        <!-- Confirm -->
+                                        <button class="confirmButton" id="createTransactionButton" onclick="createTransaction()">Create Deck</button>
+                                </div>
+                            </div>
+
                         </div>
                     <!-- Transactions Area -->
                         <div id="transactionsDiv" class="walletSubDiv">
