@@ -12,33 +12,7 @@ function prepFunction() {
     newUsr.addEventListener("click", openNewUser)
 }
 
-// Show the loading screen
-function loaderStart() {
-    // Turn on the loader
-    document.getElementById("loader").style.display = "flex"
-}
 
-function loaderStop() {
-    // Turn off the loader
-    document.getElementById("loader").style.display = "none" 
-}
-
-// Tab Swapping functions for login screen
-function openLogin() {
-    document.getElementById("newUserDiv").style.display = "none"
-    document.getElementById("returningUserDiv").style.display = "block"
-}
-
-function openNewUser() {
-    document.getElementById("returningUserDiv").style.display = "none"
-    document.getElementById("newUserDiv").style.display = "block"
-}
-
-// Check if the login credentials are accepted and load the required information.  For now this is empty
-function loginCheck() {
-    console.log("Checking login")
-    loadWalletArea()
-}
 
 // Check Statuses
 function checkAgave() {
@@ -83,7 +57,7 @@ function getBalance() {
         redirect: 'follow'
     };
     
-    fetch("https://tblockbook.peercoin.net/api/address/mprgLWTLBpPrC15ikV2BLVP7gDRnoSuf7o", requestOptions)
+    fetch("https://tblockbook.peercoin.net/api/address/mgYMis9wpPe4uCA8oNcAJvhCPrhkqPNayg", requestOptions)
         .then(response => response.json())
         .then(result => {
             console.log("Balance", result.balance)
@@ -93,12 +67,29 @@ function getBalance() {
         .catch(error => console.log('error', error));
 }
 
+function getTransactions() {
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    }
+
+    fetch("http://45.9.60.248:8089/v1/transactions?address=mgYMis9wpPe4uCA8oNcAJvhCPrhkqPNayg&type=card", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+            console.log("Transactions", result)
+        })
+        .catch(error => console.log('error', error))
+}
+
 function loadWalletArea() {
     // Check Blockbook
     checkBlockbook()
 
     // Get Balance
     getBalance()
+
+    // Get Transactions
+    getTransactions()
 
     // Hide the login area - maybe add an animation
     document.getElementById("loginArea").style.display = "none"

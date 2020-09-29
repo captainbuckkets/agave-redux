@@ -279,6 +279,7 @@ a:hover {
     margin: 10px 0px;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
+    color: black;
 }
 
 /* Wallet Area */

@@ -44,10 +44,10 @@
                     <!-- Returning User -->
                     <div class="loginDiv" id="returningUserDiv">
                         <!-- Mneumonic -->
-                        <input id="mneumonic" class="loginInput" placeholder="Mneumonic">
+                        <input id="mneumonicReturning" class="loginInput" placeholder="Mneumonic">
 
                         <!-- Priv Key -->
-                        <input id="passwrd" class="loginInput" type="password" placeholder="Password">
+                        <input id="passwordReturning" class="loginInput" type="password" placeholder="Password">
                     
                         <!-- Login Button -->
                         <button onclick="loginCheck()">Login</button>
@@ -56,13 +56,13 @@
                     <!-- New User -->
                     <div class="loginDiv" id="newUserDiv">
                         <!-- Mneumonic -->
-                        <input id="mneumonic" class="loginInput" placeholder="Mneumonic">
+                        <input id="mneumonicNew" class="loginInput" placeholder="Mneumonic">
 
                         <!-- Generate Mneumonic -->
                         <button>Generate Mneumonic</button>
 
                         <!-- Priv Key -->
-                        <input id="passwrd" class="loginInput" type="password" placeholder="Password">
+                        <input id="passwordNew" class="loginInput" type="password" placeholder="Password">
                     
                         <!-- Login Button -->
                         <button onclick="loginCheck()">Login</button>
@@ -82,7 +82,7 @@
                 
                 <!-- Address -->
                 <div id="userAddress">
-                    <div class="addressClass">mprgLWTLBpPrC15ikV2BLVP7gDRnoSuf7o</div>
+                    mprgLWTLBpPrC15ikV2BLVP7gDRnoSuf7o
                 </div>
 
                 <!-- User Balance -->
@@ -180,25 +180,21 @@
                     <!-- Overview Area -->
                         <div id="overviewDiv" class="walletSubDiv">
                             <!-- Balances -->
-                            <div id="balances" class="item">
+                            <div class="item">
                                 <h2>Balances</h2>
-                                <table>
+                                <table id="balances">
                                     <tr>
                                         <!-- Asset Icon -->
                                         <th></th>
                                         <th>Name</th>
                                         <th>Amount</th>
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <td><img class="tableIcon" src="img/logo_only_white.svg"></td>
                                         <td>Potato Soups</td>
                                         <td>20</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img class="tableIcon" src="img/logo_only_white.svg"></td>
-                                        <td>Muffins</td>
-                                        <td>3.0</td>
-                                    </tr>
+                                    </tr> -->
+                                    
                                 </table>
                             </div>
                             
@@ -471,13 +467,16 @@
         <!-- Add my main functional script -->
         <script src="js/main.js"></script>
 
+        <!-- LOGIN SCRIPT -->
+        <script src="js/login.js"></script>
+        
         <!-- SEND SCRIPT -->
         <script src="js/send.js"></script>
 
         <!-- CREATE SCRIPT -->
         <script src="js/create.js"></script>
 
-        <!-- Add Jdenticon script -->
-        <script src="https://cdn.jsdelivr.net/npm/jdenticon@3.0.1" async></script>
+        <!-- TRANSACTIONS SCRIPT -->
+        <script src="js/transactions.js"></script>
     </body>
 </html>
