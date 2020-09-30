@@ -1,3 +1,78 @@
+var transactionsTest = `[
+    {
+        "amount": 1100,
+        "block_height": 445495,
+        "card_id": "81b4e897bd7098849728b4d9c4b22af4bd074ee4074b1662db88f5d687c53551",
+        "card_index": 0,
+        "data": null,
+        "deck_id": "0113120768c52857f2d400d35da2dd896a9d4ad74e1ae9f4b23d52b8acb34eaa",
+        "receiver": "mgYMis9wpPe4uCA8oNcAJvhCPrhkqPNayg",
+        "sender": "mgYMis9wpPe4uCA8oNcAJvhCPrhkqPNayg",
+        "tx_index": 35,
+        "type": "send"
+    },
+    {
+        "amount": 1000,
+        "block_height": 445495,
+        "card_id": "35070db717cfeddd40726c4734ba502b2e7caee8a1d377739edf6f82f68db4af",
+        "card_index": 0,
+        "data": null,
+        "deck_id": "2e643dfe2a21ce8b41a81d9f7f469cdadc029328fd3a25f324fe61f9cf395cdd",
+        "receiver": "mgYMis9wpPe4uCA8oNcAJvhCPrhkqPNayg",
+        "sender": "mgYMis9wpPe4uCA8oNcAJvhCPrhkqPNayg",
+        "tx_index": 33,
+        "type": "send"
+    },
+    {
+        "amount": 1000,
+        "block_height": 445495,
+        "card_id": "e1e76936eb24a883d7bfe74f11c022c17dc9f8f8b691588a2a763803e26dd767",
+        "card_index": 0,
+        "data": null,
+        "deck_id": "8a04443c655b65a060ce4f3bc99292953015fbf6651d15c80d4fbb3ee9fbc443",
+        "receiver": "mgYMis9wpPe4uCA8oNcAJvhCPrhkqPNayg",
+        "sender": "mgYMis9wpPe4uCA8oNcAJvhCPrhkqPNayg",
+        "tx_index": 8,
+        "type": "send"
+    },
+    {
+        "amount": 1100,
+        "block_height": 445495,
+        "card_id": "81b4e897bd7098849728b4d9c4b22af4bd074ee4074b1662db88f5d687c53551",
+        "card_index": 0,
+        "data": null,
+        "deck_id": "0113120768c52857f2d400d35da2dd896a9d4ad74e1ae9f4b23d52b8acb34eaa",
+        "receiver": "mgYMis9wpPe4uCA8oNcAJvhCPrhkqPNayg",
+        "sender": "mgYMis9wpPe4uCA8oNcAJvhCPrhkqPNayg",
+        "tx_index": 35,
+        "type": "send"
+    },
+    {
+        "amount": 1000,
+        "block_height": 445495,
+        "card_id": "35070db717cfeddd40726c4734ba502b2e7caee8a1d377739edf6f82f68db4af",
+        "card_index": 0,
+        "data": null,
+        "deck_id": "2e643dfe2a21ce8b41a81d9f7f469cdadc029328fd3a25f324fe61f9cf395cdd",
+        "receiver": "mgYMis9wpPe4uCA8oNcAJvhCPrhkqPNayg",
+        "sender": "mgYMis9wpPe4uCA8oNcAJvhCPrhkqPNayg",
+        "tx_index": 33,
+        "type": "send"
+    },
+    {
+        "amount": 1000,
+        "block_height": 445495,
+        "card_id": "e1e76936eb24a883d7bfe74f11c022c17dc9f8f8b691588a2a763803e26dd767",
+        "card_index": 0,
+        "data": null,
+        "deck_id": "8a04443c655b65a060ce4f3bc99292953015fbf6651d15c80d4fbb3ee9fbc443",
+        "receiver": "mgYMis9wpPe4uCA8oNcAJvhCPrhkqPNayg",
+        "sender": "mgYMis9wpPe4uCA8oNcAJvhCPrhkqPNayg",
+        "tx_index": 8,
+        "type": "send"
+    }
+]`
+
 // Login screen loaders
 // Add event listeners to Sign In and New User tabs
 var unit = "tPPC"
@@ -67,29 +142,12 @@ function getBalance() {
         .catch(error => console.log('error', error));
 }
 
-function getTransactions() {
-    var requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
-    }
-
-    fetch("http://api.agavewallet.com:8089/v1/transactions?address=mgYMis9wpPe4uCA8oNcAJvhCPrhkqPNayg&type=card", requestOptions)
-        .then(response => response.json())
-        .then(result => {
-            console.log("Transactions", result)
-        })
-        .catch(error => console.log('error', error))
-}
-
 function loadWalletArea() {
     // Check Blockbook
     checkBlockbook()
 
     // Get Balance
     getBalance()
-
-    // Get Transactions
-    getTransactions()
 
     // Hide the login area - maybe add an animation
     document.getElementById("loginArea").style.display = "none"
@@ -184,20 +242,7 @@ function loadCreate() {
     document.getElementById("createHelp").style.display = "block"
 }
 
-// Load Transactions
-function loadTransactions() {
-    // Hide other Divs
-    // Add transitions here eventually
-    document.getElementById("overviewDiv").style.display = "none"
-    document.getElementById("sendDiv").style.display = "none"
-    document.getElementById("createDiv").style.display = "none"
 
-    // Remove the Active Tag
-    removeActiveTag("transactionsTab")
-
-    // Show Create
-    document.getElementById("transactionsDiv").style.display = "block"
-}
 
 // Logout function
 function logout() {
@@ -206,3 +251,4 @@ function logout() {
     // Remove creds
     // Remove elements
 }
+

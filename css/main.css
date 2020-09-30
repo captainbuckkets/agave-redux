@@ -409,7 +409,7 @@ a:hover {
 }
 
 /* Send Content Divs */
-#sendDiv {
+#sendDiv, #createDiv {
     display: none;
     text-align: center;
     justify-content: center;
