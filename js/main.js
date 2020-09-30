@@ -73,7 +73,7 @@ function getTransactions() {
         redirect: 'follow'
     }
 
-    fetch("http://45.9.60.248:8089/v1/transactions?address=mgYMis9wpPe4uCA8oNcAJvhCPrhkqPNayg&type=card", requestOptions)
+    fetch("http://api.agavewallet.com:8089/v1/transactions?address=mgYMis9wpPe4uCA8oNcAJvhCPrhkqPNayg&type=card", requestOptions)
         .then(response => response.json())
         .then(result => {
             console.log("Transactions", result)
